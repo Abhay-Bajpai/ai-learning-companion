@@ -28,7 +28,7 @@ router.post('/chat', async (req: Request, res: Response) => {
 });
 
 // POST /api/ai/summarize
-router.post('/summarize', async (req: Request, res: Response) => {
+router.post('/summarize', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
@@ -47,7 +47,7 @@ router.post('/summarize', async (req: Request, res: Response) => {
 });
 
 // POST /api/ai/flashcards
-router.post('/flashcards', async (req: Request, res: Response) => {
+router.post('/flashcards', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
@@ -71,7 +71,7 @@ router.post('/flashcards', async (req: Request, res: Response) => {
 });
 
 // POST /api/ai/quiz
-router.post('/quiz', async (req: Request, res: Response) => {
+router.post('/quiz', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,

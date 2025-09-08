@@ -3,7 +3,7 @@ import { Router, Request, Response } from 'express';
 const router = Router();
 
 // GET /api/users/progress
-router.get('/progress', async (req: Request, res: Response) => {
+router.get('/progress', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
@@ -50,7 +50,7 @@ router.get('/progress', async (req: Request, res: Response) => {
 });
 
 // POST /api/users/progress
-router.post('/progress', async (req: Request, res: Response) => {
+router.post('/progress', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
@@ -70,7 +70,7 @@ router.post('/progress', async (req: Request, res: Response) => {
 });
 
 // GET /api/users/achievements
-router.get('/achievements', async (req: Request, res: Response) => {
+router.get('/achievements', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,

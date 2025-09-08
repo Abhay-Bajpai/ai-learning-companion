@@ -3,7 +3,7 @@ import { Router, Request, Response } from 'express';
 const router = Router();
 
 // POST /api/auth/register
-router.post('/register', async (req: Request, res: Response) => {
+router.post('/register', async (_req: Request, res: Response) => {
   try {
     res.status(201).json({
       success: true,
@@ -19,7 +19,7 @@ router.post('/register', async (req: Request, res: Response) => {
 });
 
 // POST /api/auth/login
-router.post('/login', async (req: Request, res: Response) => {
+router.post('/login', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
@@ -35,7 +35,7 @@ router.post('/login', async (req: Request, res: Response) => {
 });
 
 // GET /api/auth/me
-router.get('/me', async (req: Request, res: Response) => {
+router.get('/me', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,

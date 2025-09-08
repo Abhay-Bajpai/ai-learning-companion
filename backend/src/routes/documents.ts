@@ -3,7 +3,7 @@ import { Router, Request, Response } from 'express';
 const router = Router();
 
 // GET /api/documents
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
@@ -21,7 +21,7 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 // POST /api/documents/upload
-router.post('/upload', async (req: Request, res: Response) => {
+router.post('/upload', async (_req: Request, res: Response) => {
   try {
     res.status(201).json({
       success: true,
@@ -53,7 +53,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 // DELETE /api/documents/:id
-router.delete('/:id', async (req: Request, res: Response) => {
+router.delete('/:id', async (_req: Request, res: Response) => {
   try {
     res.status(200).json({
       success: true,
