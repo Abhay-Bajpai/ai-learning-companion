@@ -1,0 +1,6 @@
+Dockerfile
+.dockerignore
+frontend/
+docs/
+*.md
+.git/

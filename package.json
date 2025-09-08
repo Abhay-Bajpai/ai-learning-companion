@@ -1,48 +1,57 @@
 {
-  "name": "ai-learning-companion-frontend",
+  "name": "ai-learning-companion",
+  "version": "1.0.0",
+  "description": "AI-powered interactive personal learning companion with React frontend and Node.js backend",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "framer-motion": "^10.16.4",
-    "three": "^0.156.1",
-    "@react-three/fiber": "^8.13.6",
-    "@react-three/drei": "^9.83.6",
-    "gsap": "^3.12.2",
-    "recharts": "^2.8.0",
-    "lucide-react": "^0.279.0",
-    "axios": "^1.5.0",
-    "react-query": "^3.39.3",
-    "react-dropzone": "^14.2.3",
-    "react-hot-toast": "^2.4.1",
-    "zustand": "^4.4.1",
-    "react-markdown": "^8.0.7",
-    "react-syntax-highlighter": "^15.5.0"
+    "install:all": "npm install && npm install --workspace=frontend && npm install --workspace=backend",
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "build": "cd backend && npm install && npm run build",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "start": "cd backend && npm start",
+    "lint": "npm run lint --workspace=frontend && npm run lint --workspace=backend",
+    "lint:frontend": "npm run lint --workspace=frontend",
+    "lint:backend": "npm run lint --workspace=backend",
+    "test": "npm run test --workspace=frontend && npm run test --workspace=backend",
+    "clean": "rm -rf node_modules frontend/node_modules backend/node_modules frontend/dist backend/dist",
+    "setup": "npm run install:all && npm run setup:env",
+    "setup:env": "cp backend/.env.example backend/.env && echo 'Please configure your environment variables in backend/.env'",
+    "docker:build": "docker build -t ai-learning-companion .",
+    "docker:run": "docker run -p 3000:3000 -p 5000:5000 ai-learning-companion"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@types/three": "^0.156.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
-    "autoprefixer": "^10.4.15",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "postcss": "^8.4.29",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vite-plugin-pwa": "^0.16.5"
-  }
+    "concurrently": "^8.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "ai",
+    "learning",
+    "education",
+    "react",
+    "typescript",
+    "nodejs",
+    "mongodb",
+    "openai",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/ai-learning-companion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/ai-learning-companion/issues"
+  },
+  "homepage": "https://github.com/yourusername/ai-learning-companion#readme"
 }
