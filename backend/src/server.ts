@@ -19,7 +19,7 @@ import userRoutes from '@/routes/users.js'
 config()
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 10000
 
 // Rate limiting
 const limiter = rateLimit({
@@ -53,7 +53,7 @@ app.use(morgan('combined', {
 }))
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/health', (_, res) => {
   res.status(200).json({
     status: 'OK',
     timestamp: new Date().toISOString(),
